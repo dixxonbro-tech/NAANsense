@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#fff4dc">
+<title>NAANsense — The Flatbread Adventure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="sun-glow"></div><div class="grain"></div>
+<main class="app-shell">
+<header class="topbar">
+<a class="brand" href="/"><span class="brand-bread">🫓</span><span>NAAN<span class="brand-soft">sense</span></span></a>
+<div class="top-right"><span class="pill"><i></i> PLAY TOGETHER</span><span class="tiny-top">A little bread wisdom for everyone</span></div>
+</header>
+
+<section id="home" class="screen">
+<div class="hero">
+<div class="kicker"><span>✦</span> WELCOME TO THE FLATBREAD FABLE</div>
+<h1>Good bread.<br><em>Great sense.</em></h1>
+<p class="hero-copy">A multiplayer adventure where naan bounces, kitchen mysteries unfold, and gluten-free know-how helps your whole crew level up.</p>
+<div class="hero-art" aria-label="A cheerful animated naan mascot">
+<div class="spark s1">✦</div><div class="spark s2">✧</div><div class="spark s3">✦</div>
+<div class="sun-doodle"></div><div class="leaf leaf-one">〰</div><div class="leaf leaf-two">〰</div>
+<div class="mascot"><div class="naan-blister b1"></div><div class="naan-blister b2"></div><div class="naan-blister b3"></div><div class="naan-blister b4"></div><div class="face"><span class="eye"></span><span class="eye"></span><span class="cheek"></span><span class="cheek"></span><span class="smile"></span></div><div class="arm arm-left"></div><div class="arm arm-right"></div><div class="leg leg-left"></div><div class="leg leg-right"></div></div>
+<div class="art-caption">meet Nori the Naan <span>♡</span></div>
+</div>
+</div>
+<div class="home-grid">
+<div class="card entry-card"><div class="card-top"><span class="sticker">🧺</span><span class="micro-label">YOUR NEXT ADVENTURE</span></div><h2>Gather your bread crew</h2><p class="muted">Play with friends, answer fun food clues, and learn a little more about gluten-free living while you go.</p>
+<label for="playerName">YOUR ADVENTURER NAME</label><input id="playerName" maxlength="18" placeholder="e.g. Naan Solo" autocomplete="nickname">
+<button id="createBtn" class="btn btn-main">Bake a new room <span>→</span></button>
+<div class="join-row"><input id="roomCodeInput" maxlength="6" placeholder="ROOM CODE" aria-label="Room code"><button id="joinBtn" class="btn btn-quiet">Join crew</button></div><p id="homeError" class="error"></p>
+</div>
+<div class="card rules-card"><div class="card-top"><span class="sticker sticker-green">📜</span><span class="micro-label">THE RECIPE FOR FUN</span></div><h2>How to play</h2>
+<div class="rule"><span class="rule-icon">🧠</span><div><strong>Answer the call</strong><p>6 rounds of naan trivia, ingredient clues, and kitchen challenges.</p></div></div>
+<div class="rule"><span class="rule-icon">⏱️</span><div><strong>Beat the timer</strong><p>18 seconds per question. Faster correct answers can earn bonus points.</p></div></div>
+<div class="rule"><span class="rule-icon">🌟</span><div><strong>Collect your wisdom</strong><p>Earn points and badges. Highest score after the finale wins!</p></div></div>
+<div class="rules-foot">🫓 Learn together, laugh together, leave crumbs behind (not in the gluten-free kitchen).</div>
+</div>
+</div>
+<footer>MADE WITH A LITTLE FLOURISH <span>✿</span></footer>
+</section>
+
+<section id="lobby" class="screen hidden">
+<div class="page-heading"><div><div class="kicker">THE BREAD BASKET</div><h1>Invite your <em>crew.</em></h1><p class="muted">Send this code or invite link so friends can join from any device.</p></div></div>
+<div class="lobby-actions"><button id="exitRoomBtn" class="btn btn-oven">🔥 Close the Oven</button></div>
+<div class="room-card"><span class="micro-label">YOUR ROOM CODE</span><div class="room-code-line"><strong id="roomCodeDisplay">------</strong><div class="invite-buttons"><button id="copyBtn" class="btn btn-share">Copy code</button><button id="shareBtn" class="btn btn-share">Share invite</button></div></div></div>
+<div class="lobby-grid"><div class="card"><div class="card-top"><h2>At the table</h2><span id="playerCount" class="count">1 / 8</span></div><div id="playerList" class="player-list"></div></div>
+<div class="card start-card"><div class="sticker sticker-green">🌿</div><h2>Ready, set, rise!</h2><p class="muted">The host can start when at least two players have joined.</p><button id="startBtn" class="btn btn-main">Start the adventure <span>→</span></button></div>
+</div>
+</section>
+
+<section id="game" class="screen hidden">
+<div class="game-head"><div><div id="roundType" class="kicker">🌾 FLOUR POWER</div><h1 id="roundTitle">The flour trail</h1></div><div class="round-counter"><span id="roundLabel">ROUND 1 / 6</span></div></div>
+<div class="timer-row"><div class="timer-track"><div id="timerBar" class="timer-bar"></div></div><strong id="timerText">18s</strong></div>
+<div class="challenge-card"><div class="challenge-decor decor-left">✿</div><div class="challenge-decor decor-right">✧</div><div id="challengeIcon" class="challenge-icon">🌾</div><div id="challengeQuestion" class="challenge-question">Which flour is usually used to make traditional naan?</div></div>
+<div class="answers-grid" id="answersGrid"></div>
+<div class="feedback" id="answerFeedback"></div>
+<div class="game-lower"><div class="card mini-score"><div class="card-top"><h2>Who's rising?</h2><span class="micro-label">LIVE SCORES</span></div><div id="gamePlayers" class="player-list"></div></div></div>
+</section>
+
+<section id="results" class="screen hidden">
+<div class="results-hero"><div class="final-mascot">🫓</div><div class="kicker">FRESH OUT OF THE OVEN</div><h1 id="winnerTitle">Naan champion!</h1><p class="muted">Six rounds of clever choices. A little learning, a lot of fun.</p></div>
+<div class="card final-card"><div class="card-top"><h2>The final table</h2><span class="micro-label">FINAL SCORES</span></div><div id="finalPlayers" class="final-list"></div></div>
+<div class="results-actions"><button id="playAgainBtn" class="btn btn-main">Start a fresh adventure <span>→</span></button><button id="homeBtn" class="btn btn-quiet">Back to the kitchen</button></div>
+<p class="disclaimer">Food-learning note: this game shares general information, not medical advice. Traditional wheat naan contains gluten. If gluten avoidance is medically important, check labels and speak with a healthcare professional.</p>
+</section>
+<div id="toast" class="toast" role="status"></div>
+</main>
+<script src="/socket.io/socket.io.js"></script><script src="/app.js"></script>
+</body></html>
